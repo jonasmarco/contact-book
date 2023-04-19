@@ -18,7 +18,7 @@ import {
   Controller
 } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { addContactSchema } from './validations'
+import { AddContactSchema } from './validations'
 
 import { onlyNumbers } from '@/utils/onlyNumbers'
 import { ContactBook } from '@/types/Contact'
@@ -40,9 +40,10 @@ const AddContact = () => {
     control,
     formState: { errors, isSubmitting },
     setValue,
-    setFocus
+    setFocus,
+    clearErrors
   } = useForm<ContactBook>({
-    resolver: yupResolver(addContactSchema),
+    resolver: yupResolver(AddContactSchema),
     mode: 'onBlur',
     defaultValues: {
       name: '',
@@ -90,6 +91,7 @@ const AddContact = () => {
       uf: ''
     })
     setCurrentAddressIndex(addressFields.length)
+    clearErrors(['addressList'])
   }
 
   const handleRemoveAddress = (index: number) => {
@@ -171,11 +173,11 @@ const AddContact = () => {
   const onSubmit: SubmitHandler<ContactBook> = async (data) => {
     console.log('form data => ', data)
 
-    // try {
-    //   await setContactBookMutation.mutateAsync(data)
-    // } catch (error: any) {
-    //   console.log(error.message)
-    // }
+    try {
+      await setContactBookMutation.mutateAsync(data)
+    } catch (error: any) {
+      console.log(error.message)
+    }
   }
 
   React.useEffect(() => {
@@ -292,6 +294,7 @@ const AddContact = () => {
                   appendPhone({
                     number: ''
                   })
+                  clearErrors(['phoneNumbers'])
                 }}
               >
                 Adicionar novo telefone

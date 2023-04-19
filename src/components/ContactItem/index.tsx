@@ -12,6 +12,8 @@ import Rodal from 'rodal'
 import 'rodal/lib/rodal.css'
 import * as S from './styles'
 
+const DEFAULT_AVATAR_URL = '/avatar.svg'
+
 interface ContactItemProps extends ContactBook {
   handleDelete: () => void
 }
@@ -33,7 +35,7 @@ const ContactItem = ({
     <S.ContactItem>
       <div>
         <a href={`tel:55${onlyNumbers(phoneNumbers[0].number)}`}>
-          <S.Avatar src={photo ?? ''} />
+          <S.Avatar src={photo ? photo : DEFAULT_AVATAR_URL} />
           <h3>{name}</h3>
           <span>{phoneNumbers[0].number}</span>
         </a>
@@ -52,7 +54,7 @@ const ContactItem = ({
       {isModalOpen && (
         <Rodal visible={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <S.ModalBody>
-            <S.Avatar src={photo ?? ''} />
+            <S.Avatar src={photo ? photo : DEFAULT_AVATAR_URL} />
             <h2>{name}</h2>
             <Text>Telefones:</Text>
             <div>
@@ -72,11 +74,11 @@ const ContactItem = ({
               {addressList.map((address) => {
                 return (
                   <a
-                    key={address.addresses}
-                    href={`https://www.google.com/maps/place/${address.addresses}`}
+                    key={`${address.logradouro}-${address.numero}`}
+                    href={`https://www.google.com/maps/place/${address.cep} ${address.logradouro} ${address.numero} ${address.bairro} ${address.localidade} - ${address.uf}`}
                     target="blank"
                   >
-                    {address.addresses}
+                    {`${address.logradouro} - ${address.numero}, ${address.bairro}, ${address.localidade}-${address.uf}`}
                   </a>
                 )
               })}

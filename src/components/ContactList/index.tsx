@@ -57,6 +57,10 @@ const ContactList = () => {
     setContactToDelete(contact)
   }
 
+  React.useEffect(() => {
+    refetch()
+  }, [])
+
   if (isError) {
     return (
       <>

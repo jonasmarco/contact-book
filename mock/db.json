@@ -14,7 +14,13 @@
       ],
       "addressList": [
         {
-          "addresses": "123 Main St"
+          "cep": "89212-070",
+          "logradouro": "Rua Ipira",
+          "numero": "3423442",
+          "complemento": "",
+          "bairro": "Floresta",
+          "localidade": "Joinville",
+          "uf": "SC"
         }
       ]
     },
@@ -29,7 +35,13 @@
       ],
       "addressList": [
         {
-          "addresses": "110 Forest Street"
+          "cep": "89212-070",
+          "logradouro": "Rua Ipira",
+          "numero": "3423442",
+          "complemento": "",
+          "bairro": "Floresta",
+          "localidade": "Joinville",
+          "uf": "SC"
         }
       ]
     },
@@ -44,7 +56,13 @@
       ],
       "addressList": [
         {
-          "addresses": "877 Cross Street"
+          "cep": "89212-070",
+          "logradouro": "Rua Ipira",
+          "numero": "3423442",
+          "complemento": "",
+          "bairro": "Floresta",
+          "localidade": "Joinville",
+          "uf": "SC"
         }
       ]
     },
@@ -65,10 +83,13 @@
       ],
       "addressList": [
         {
-          "addresses": "Rua das Flores, 123"
-        },
-        {
-          "addresses": "Avenida Brasil, 456"
+          "cep": "89212-070",
+          "logradouro": "Rua Ipira",
+          "numero": "3423442",
+          "complemento": "",
+          "bairro": "Floresta",
+          "localidade": "Joinville",
+          "uf": "SC"
         }
       ]
     },
@@ -83,7 +104,13 @@
       ],
       "addressList": [
         {
-          "addresses": "Rua do Sol, 789"
+          "cep": "89212-070",
+          "logradouro": "Rua Ipira",
+          "numero": "3423442",
+          "complemento": "",
+          "bairro": "Floresta",
+          "localidade": "Joinville",
+          "uf": "SC"
         }
       ]
     },
@@ -101,7 +128,13 @@
       ],
       "addressList": [
         {
-          "addresses": "Avenida Central, 101"
+          "cep": "89212-070",
+          "logradouro": "Rua Ipira",
+          "numero": "3423442",
+          "complemento": "",
+          "bairro": "Floresta",
+          "localidade": "Joinville",
+          "uf": "SC"
         }
       ]
     },
@@ -109,22 +142,91 @@
       "name": "Jonas",
       "phoneNumbers": [
         {
-          "number": ""
+          "number": "(43) 99661-1010"
+        },
+        {
+          "number": "(31) 98877-6655"
         }
       ],
       "addressList": [
         {
-          "cep": "",
-          "logradouro": "",
-          "numero": "",
+          "cep": "86183-210",
+          "logradouro": "Rua Tamoios",
+          "numero": "1000",
           "complemento": "",
-          "bairro": "",
-          "localidade": "",
-          "uf": ""
+          "bairro": "Jardim Tupi",
+          "localidade": "Cambé",
+          "uf": "PR"
         }
       ],
       "photo": "",
       "id": "bx7vVen"
+    },
+    {
+      "name": "Kaio Jorge",
+      "phoneNumbers": [
+        {
+          "number": "(11) 98768-7465"
+        },
+        {
+          "number": "(42) 35345-3463"
+        }
+      ],
+      "addressList": [
+        {
+          "cep": "86183-210",
+          "logradouro": "Rua Tamoios",
+          "numero": "111",
+          "complemento": "",
+          "bairro": "Jardim Tupi",
+          "localidade": "Cambé",
+          "uf": "PR"
+        }
+      ],
+      "photo": "",
+      "id": "2NOjLaT"
+    },
+    {
+      "name": "Felipe Santos",
+      "phoneNumbers": [
+        {
+          "number": "(16) 57987-9879"
+        }
+      ],
+      "addressList": [
+        {
+          "cep": "58033-510",
+          "logradouro": "Rua Newton Timóteo de Souza",
+          "numero": "6575",
+          "complemento": "",
+          "bairro": "Brisamar",
+          "localidade": "João Pessoa",
+          "uf": "PB"
+        }
+      ],
+      "photo": "",
+      "id": "5vRQCJb"
+    },
+    {
+      "name": "Maicon Santos",
+      "phoneNumbers": [
+        {
+          "number": "(14) 21342-5425"
+        }
+      ],
+      "addressList": [
+        {
+          "cep": "89212-070",
+          "logradouro": "Rua Ipira",
+          "numero": "3423442",
+          "complemento": "",
+          "bairro": "Floresta",
+          "localidade": "Joinville",
+          "uf": "SC"
+        }
+      ],
+      "photo": "",
+      "id": "nccYqLp"
     }
   ]
 }

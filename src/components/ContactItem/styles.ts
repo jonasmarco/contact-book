@@ -60,6 +60,7 @@ export const ModalBody = styled.section`
     flex-direction: column;
     gap: ${theme.layout.gapForm};
     justify-content: center;
+    text-align: center;
     h2 {
       font-size: ${theme.fonts.sizes.extraLarge};
     }
