@@ -115,7 +115,7 @@ const ContactList = () => {
             <S.GroupHeader>{initial}</S.GroupHeader>
             {groups[initial].map((contact) => (
               <ContactItem
-                key={contact.name}
+                key={contact.id}
                 {...contact}
                 handleDelete={() => handleOpenDeleteModal(contact)}
               />

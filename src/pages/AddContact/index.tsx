@@ -29,7 +29,6 @@ import * as S from './styles'
 
 const AddContact = () => {
   const [disableCep, setDisableCep] = React.useState<boolean>(false)
-  const [addressData, setAddressData] = React.useState(null)
   const [currentAddressIndex, setCurrentAddressIndex] =
     React.useState<number>(0)
 
@@ -51,6 +50,7 @@ const AddContact = () => {
         {
           cep: '',
           logradouro: '',
+          numero: '',
           complemento: '',
           bairro: '',
           localidade: '',
@@ -82,6 +82,7 @@ const AddContact = () => {
     appendAddress({
       cep: '',
       logradouro: '',
+      numero: '',
       complemento: '',
       bairro: '',
       localidade: '',
@@ -106,7 +107,6 @@ const AddContact = () => {
       setDisableCep(true)
 
       const response = await getCep(value)
-      setAddressData(response)
 
       const { logradouro, complemento, bairro, localidade, uf } = response
       setValue(`addressList.${currentAddressIndex}.logradouro`, logradouro, {
@@ -126,6 +126,8 @@ const AddContact = () => {
       })
 
       setDisableCep(false)
+
+      setFocus(`addressList.${currentAddressIndex}.numero`)
     }
   }, 500)
 
@@ -166,13 +168,13 @@ const AddContact = () => {
   })
 
   const onSubmit: SubmitHandler<ContactBook> = async (data) => {
-    console.log(data)
+    console.log('form data => ', data)
 
-    try {
-      await setContactBookMutation.mutateAsync(data)
-    } catch (error: any) {
-      console.log(error.message)
-    }
+    // try {
+    //   await setContactBookMutation.mutateAsync(data)
+    // } catch (error: any) {
+    //   console.log(error.message)
+    // }
   }
 
   React.useEffect(() => {
@@ -209,8 +211,8 @@ const AddContact = () => {
             <FormItem>
               <label>Telefones</label>
               {phoneFields.map((field, index) => (
-                <>
-                  <div key={field.id}>
+                <React.Fragment key={field.id}>
+                  <div>
                     <MaskedInput
                       mask={(rawValue: string) => {
                         if (rawValue.replace(/[^0-9,]/g, '').length > 10) {
@@ -263,22 +265,21 @@ const AddContact = () => {
                       {}
                     </Button>
                   </div>
-
                   {errors.phoneNumbers?.length && (
                     <Text danger>Informe um telefone válido</Text>
                   )}
-                </>
+                </React.Fragment>
               ))}
               {errors.phoneNumbers?.message && (
                 <Text danger>{errors.phoneNumbers.message}</Text>
               )}
               <Button
                 category="secondary"
-                onClick={() =>
+                onClick={() => {
                   appendPhone({
                     number: ''
                   })
-                }
+                }}
               >
                 Adicionar novo telefone
               </Button>
@@ -287,8 +288,8 @@ const AddContact = () => {
             <FormItem multiple disabled={disableCep}>
               <label>Endereços</label>
               {addressFields.map((field, index) => (
-                <>
-                  <div key={field.id}>
+                <React.Fragment key={field.id}>
+                  <div>
                     <Controller
                       control={control}
                       name={`addressList.${index}.cep`}
@@ -318,6 +319,11 @@ const AddContact = () => {
                         />
                       )}
                     />
+                    {errors.addressList?.length && (
+                      <Text danger>
+                        {errors.addressList?.[index]?.cep?.message}
+                      </Text>
+                    )}
                     <Controller
                       control={control}
                       name={`addressList.${index}.logradouro`}
@@ -326,6 +332,24 @@ const AddContact = () => {
                         <input {...field} placeholder="Logradouro" />
                       )}
                     />
+                    {errors.addressList?.length && (
+                      <Text danger>
+                        {errors.addressList?.[index]?.logradouro?.message}
+                      </Text>
+                    )}
+                    <Controller
+                      control={control}
+                      name={`addressList.${index}.numero`}
+                      rules={{ required: true }}
+                      render={({ field }) => (
+                        <input {...field} placeholder="Número" />
+                      )}
+                    />
+                    {errors.addressList?.length && (
+                      <Text danger>
+                        {errors.addressList?.[index]?.numero?.message}
+                      </Text>
+                    )}
                     <Controller
                       control={control}
                       name={`addressList.${index}.complemento`}
@@ -341,6 +365,11 @@ const AddContact = () => {
                         <input {...field} placeholder="Bairro" />
                       )}
                     />
+                    {errors.addressList?.length && (
+                      <Text danger>
+                        {errors.addressList?.[index]?.bairro?.message}
+                      </Text>
+                    )}
                     <Controller
                       control={control}
                       name={`addressList.${index}.localidade`}
@@ -349,6 +378,11 @@ const AddContact = () => {
                         <input {...field} placeholder="Cidade" />
                       )}
                     />
+                    {errors.addressList?.length && (
+                      <Text danger>
+                        {errors.addressList?.[index]?.localidade?.message}
+                      </Text>
+                    )}
                     <Controller
                       control={control}
                       name={`addressList.${index}.uf`}
@@ -357,6 +391,11 @@ const AddContact = () => {
                         <input {...field} placeholder="UF" />
                       )}
                     />
+                    {errors.addressList?.length && (
+                      <Text danger>
+                        {errors.addressList?.[index]?.uf?.message}
+                      </Text>
+                    )}
                     <Button
                       category="danger"
                       onClick={() => handleRemoveAddress(index)}
@@ -365,10 +404,7 @@ const AddContact = () => {
                       {}
                     </Button>
                   </div>
-                  {errors.addressList?.length && (
-                    <Text danger>Informe um CEP válido</Text>
-                  )}
-                </>
+                </React.Fragment>
               ))}
               {errors.addressList && (
                 <Text danger>{errors.addressList.message}</Text>

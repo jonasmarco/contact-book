@@ -8,6 +8,7 @@ export type ContactBook = {
   addressList: {
     cep: string
     logradouro: string
+    numero: string
     complemento?: string
     bairro: string
     localidade: string
