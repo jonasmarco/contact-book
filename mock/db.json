@@ -1,0 +1,109 @@
+{
+  "contactBook": [
+    {
+      "id": "3ad28a4d-02d4-447d-9b88-c00d63f4d588",
+      "name": "John Doe",
+      "photo": "https://i.pravatar.cc/150?u=joao.silva",
+      "phoneNumbers": [
+        {
+          "number": "(43) 99988-7744"
+        },
+        {
+          "number": "(44) 91234-5678"
+        }
+      ],
+      "addressList": [
+        {
+          "addresses": "123 Main St"
+        }
+      ]
+    },
+    {
+      "id": "13d6c268-88ff-4532-b8e8-229a5ef9ce63",
+      "name": "Michael Smith",
+      "photo": "https://i.pravatar.cc/150?u=maria.souza",
+      "phoneNumbers": [
+        {
+          "number": "(44) 99759-8423"
+        }
+      ],
+      "addressList": [
+        {
+          "addresses": "110 Forest Street"
+        }
+      ]
+    },
+    {
+      "id": "85f694f4-1d8f-40d3-99d7-fedc8fdbd772",
+      "name": "Emily Anderson",
+      "photo": "https://i.pravatar.cc/150?u=pedro.santos",
+      "phoneNumbers": [
+        {
+          "number": "(66) 99113-5519"
+        }
+      ],
+      "addressList": [
+        {
+          "addresses": "877 Cross Street"
+        }
+      ]
+    },
+    {
+      "id": "b0e0c5b1-df0e-4a6a-bc7a-ea6c5f7b2b0c",
+      "name": "Lucas Souza",
+      "photo": "https://i.pravatar.cc/150?u=lucas.souza",
+      "phoneNumbers": [
+        {
+          "number": "(11) 98765-4321"
+        },
+        {
+          "number": "(11) 99876-5432"
+        },
+        {
+          "number": "(11) 99654-3210"
+        }
+      ],
+      "addressList": [
+        {
+          "addresses": "Rua das Flores, 123"
+        },
+        {
+          "addresses": "Avenida Brasil, 456"
+        }
+      ]
+    },
+    {
+      "id": "e1e7a9f1-dc9f-4e6b-a5b3-fa2e7c7b3c1a",
+      "name": "Ana Silva",
+      "photo": "https://i.pravatar.cc/150?u=ana.silva",
+      "phoneNumbers": [
+        {
+          "number": "(21) 92345-6789"
+        }
+      ],
+      "addressList": [
+        {
+          "addresses": "Rua do Sol, 789"
+        }
+      ]
+    },
+    {
+      "id": "6b0f6f5c-fb8e-4e9c-a2a2-fb7f3a8a4f3d",
+      "name": "Pedro Santos",
+      "photo": "https://i.pravatar.cc/150?u=pedro.santos",
+      "phoneNumbers": [
+        {
+          "number": "(31) 91234-5678"
+        },
+        {
+          "number": "(31) 98877-6655"
+        }
+      ],
+      "addressList": [
+        {
+          "addresses": "Avenida Central, 101"
+        }
+      ]
+    }
+  ]
+}
