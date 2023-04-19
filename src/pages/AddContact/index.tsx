@@ -43,6 +43,7 @@ const AddContact = () => {
     setFocus
   } = useForm<ContactBook>({
     resolver: yupResolver(addContactSchema),
+    mode: 'onBlur',
     defaultValues: {
       name: '',
       phoneNumbers: [{ number: '' }],
@@ -110,19 +111,19 @@ const AddContact = () => {
 
       const { logradouro, complemento, bairro, localidade, uf } = response
       setValue(`addressList.${currentAddressIndex}.logradouro`, logradouro, {
-        shouldDirty: true
+        shouldValidate: true
       })
       setValue(`addressList.${currentAddressIndex}.complemento`, complemento, {
-        shouldDirty: true
+        shouldValidate: true
       })
       setValue(`addressList.${currentAddressIndex}.bairro`, bairro, {
-        shouldDirty: true
+        shouldValidate: true
       })
       setValue(`addressList.${currentAddressIndex}.localidade`, localidade, {
-        shouldDirty: true
+        shouldValidate: true
       })
       setValue(`addressList.${currentAddressIndex}.uf`, uf, {
-        shouldDirty: true
+        shouldValidate: true
       })
 
       setDisableCep(false)
@@ -213,49 +214,59 @@ const AddContact = () => {
               {phoneFields.map((field, index) => (
                 <React.Fragment key={field.id}>
                   <div>
-                    <MaskedInput
-                      mask={(rawValue: string) => {
-                        if (rawValue.replace(/[^0-9,]/g, '').length > 10) {
-                          return [
-                            '(',
-                            /[1-9]/,
-                            /\d/,
-                            ')',
-                            ' ',
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            '-',
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            /\d/
-                          ]
-                        } else {
-                          return [
-                            '(',
-                            /[1-9]/,
-                            /\d/,
-                            ')',
-                            ' ',
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            '-',
-                            /\d/,
-                            /\d/,
-                            /\d/,
-                            /\d/
-                          ]
-                        }
-                      }}
-                      {...register(`phoneNumbers.${index}.number` as const, {
-                        required: true
-                      })}
-                      placeholder="(00) 91234-5678"
+                    <Controller
+                      control={control}
+                      name={`phoneNumbers.${index}.number`}
+                      rules={{ required: true }}
+                      render={({ field }) => (
+                        <MaskedInput
+                          {...field}
+                          mask={(rawValue: string) => {
+                            if (rawValue.replace(/[^0-9,]/g, '').length > 10) {
+                              return [
+                                '(',
+                                /[1-9]/,
+                                /\d/,
+                                ')',
+                                ' ',
+                                /\d/,
+                                /\d/,
+                                /\d/,
+                                /\d/,
+                                /\d/,
+                                '-',
+                                /\d/,
+                                /\d/,
+                                /\d/,
+                                /\d/
+                              ]
+                            } else {
+                              return [
+                                '(',
+                                /[1-9]/,
+                                /\d/,
+                                ')',
+                                ' ',
+                                /\d/,
+                                /\d/,
+                                /\d/,
+                                /\d/,
+                                '-',
+                                /\d/,
+                                /\d/,
+                                /\d/,
+                                /\d/
+                              ]
+                            }
+                          }}
+                          placeholder="(00) 99999-8888"
+                          ref={(ref) => {
+                            field.ref({
+                              focus: ref?.props.onBlur
+                            })
+                          }}
+                        />
+                      )}
                     />
                     <Button
                       category="danger"
@@ -266,7 +277,9 @@ const AddContact = () => {
                     </Button>
                   </div>
                   {errors.phoneNumbers?.length && (
-                    <Text danger>Informe um telefone válido</Text>
+                    <Text danger>
+                      {errors.phoneNumbers?.[index]?.number?.message}
+                    </Text>
                   )}
                 </React.Fragment>
               ))}

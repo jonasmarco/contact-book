@@ -27,6 +27,7 @@ const Button = ({
 }: Props): JSX.Element => {
   return (
     <S.Wrapper
+      type={props.type || 'button'}
       size={size}
       category={category}
       fullWidth={fullWidth}
