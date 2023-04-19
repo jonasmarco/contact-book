@@ -29,6 +29,20 @@ export const groupContactsByInitial = (data: ContactBook[]) => {
   return groups
 }
 
+export const setContactBook = async (
+  data: ContactBook
+): Promise<ContactBook> => {
+  try {
+    const response: AxiosResponse<ContactBook> = await axios.post(
+      '/contactBook',
+      data
+    )
+    return response.data
+  } catch (error: any) {
+    throw new Error(`Failed to fetch contact book. Error: ${error.message}`)
+  }
+}
+
 export const deleteContact = async (id: string): Promise<ContactBook[]> => {
   try {
     const response: AxiosResponse<ContactBook[]> = await axios.delete(

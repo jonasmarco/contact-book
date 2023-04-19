@@ -5,10 +5,11 @@ import Container from '@/components/Container'
 import FormItem from '@/components/FormItem'
 import Text from '@/components/Text'
 import Title from '@/components/Title'
+import { useMutation } from 'react-query'
 
 import { Close } from '@styled-icons/evil'
 import MaskedInput from 'react-text-mask'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import {
   useForm,
@@ -21,6 +22,7 @@ import { addContactSchema } from './validations'
 
 import { onlyNumbers } from '@/utils/onlyNumbers'
 import { ContactBook } from '@/types/Contact'
+import { setContactBook } from '@/api/contactBook'
 import { getCep } from '@/api/cep'
 
 import * as S from './styles'
@@ -30,6 +32,8 @@ const AddContact = () => {
   const [addressData, setAddressData] = React.useState(null)
   const [currentAddressIndex, setCurrentAddressIndex] =
     React.useState<number>(0)
+
+  const navigate = useNavigate()
 
   const {
     register,
@@ -152,8 +156,23 @@ const AddContact = () => {
     return { debouncedCallback, cancel }
   }
 
-  const onSubmit: SubmitHandler<ContactBook> = (data) => {
+  const setContactBookMutation = useMutation(setContactBook, {
+    onSuccess: () => {
+      navigate('/')
+    },
+    onError: () => {
+      console.log('error')
+    }
+  })
+
+  const onSubmit: SubmitHandler<ContactBook> = async (data) => {
     console.log(data)
+
+    try {
+      await setContactBookMutation.mutateAsync(data)
+    } catch (error: any) {
+      console.log(error.message)
+    }
   }
 
   React.useEffect(() => {
