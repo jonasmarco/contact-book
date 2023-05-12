@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export const AddContactSchema = yup.object().shape({
+export const NewContactSchema = yup.object().shape({
   name: yup.string().required('Por favor, informe um nome'),
   phoneNumbers: yup
     .array()
@@ -27,4 +27,4 @@ export const AddContactSchema = yup.object().shape({
     .min(1, 'Por favor adicione ao menos um endereço')
 })
 
-export type AddContactSchema = yup.InferType<typeof AddContactSchema>
+export type AddContactSchema = yup.InferType<typeof NewContactSchema>

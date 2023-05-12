@@ -5,11 +5,12 @@ import Container from '@/components/Container'
 import FormItem from '@/components/FormItem'
 import Text from '@/components/Text'
 import Title from '@/components/Title'
-import { useMutation } from 'react-query'
+import Skeleton from 'react-loading-skeleton'
 
 import { Close } from '@styled-icons/evil'
 import MaskedInput from 'react-text-mask'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useMutation } from 'react-query'
 
 import {
   useForm,
@@ -18,16 +19,24 @@ import {
   Controller
 } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { AddContactSchema } from './validations'
+import { ContactBookSchema } from '@/utils/validations/contactBookValidations'
+import { useDebouncedCallback } from '@/hooks/useDebouncedCallback'
 
 import { onlyNumbers } from '@/utils/onlyNumbers'
 import { ContactBook } from '@/types/Contact'
-import { setContactBook } from '@/api/contactBook'
+import { useContact, updateContactBook } from '@/api/contactBook'
 import { getCep } from '@/api/cep'
 
 import * as S from './styles'
 
-const AddContact = () => {
+type EditContactProps = {
+  id: string
+}
+
+const EditContact = () => {
+  const { id } = useParams<EditContactProps>()
+  const { data: contato, isLoading, isError } = useContact(id as string)
+
   const [disableCep, setDisableCep] = React.useState<boolean>(false)
   const [currentAddressIndex, setCurrentAddressIndex] =
     React.useState<number>(0)
@@ -43,7 +52,7 @@ const AddContact = () => {
     setFocus,
     clearErrors
   } = useForm<ContactBook>({
-    resolver: yupResolver(AddContactSchema),
+    resolver: yupResolver(ContactBookSchema),
     mode: 'onBlur',
     defaultValues: {
       name: '',
@@ -138,30 +147,11 @@ const AddContact = () => {
     handleCepDebounced.cancel()
   }
 
-  function useDebouncedCallback(callback: Function, delay: number) {
-    const [timerId, setTimerId] = React.useState<number | null>(null)
-
-    const debouncedCallback = (...args: any[]) => {
-      if (timerId) {
-        clearTimeout(timerId)
-      }
-      const newTimerId = window.setTimeout(() => {
-        callback(...args)
-      }, delay)
-      setTimerId(newTimerId)
-    }
-
-    const cancel = () => {
-      if (timerId) {
-        clearTimeout(timerId)
-        setTimerId(null)
-      }
-    }
-
-    return { debouncedCallback, cancel }
-  }
-
-  const setContactBookMutation = useMutation(setContactBook, {
+  const updateContactBookMutation = useMutation<
+    ContactBook,
+    void,
+    { id: string; data: ContactBook }
+  >(({ id, data }) => updateContactBook(id, data), {
     onSuccess: () => {
       navigate('/')
     },
@@ -171,25 +161,75 @@ const AddContact = () => {
   })
 
   const onSubmit: SubmitHandler<ContactBook> = async (data) => {
-    console.log('form data => ', data)
-
     try {
-      await setContactBookMutation.mutateAsync(data)
+      await updateContactBookMutation.mutateAsync({ id: id as string, data })
     } catch (error: any) {
       console.log(error.message)
     }
   }
 
   React.useEffect(() => {
-    console.log(errors)
-  }, [errors])
+    if (contato) {
+      setValue('name', contato.name)
+      if (contato.photo) {
+        setValue('photo', contato.photo)
+      }
+      contato.phoneNumbers.forEach((phoneNumber, index) => {
+        setValue(`phoneNumbers.${index}.number`, phoneNumber.number)
+      })
+      contato.addressList.forEach((address, index) => {
+        setValue(`addressList.${index}.cep`, address.cep)
+        setValue(`addressList.${index}.logradouro`, address.logradouro)
+        setValue(`addressList.${index}.numero`, address.numero)
+        setValue(`addressList.${index}.complemento`, address.complemento)
+        setValue(`addressList.${index}.bairro`, address.bairro)
+        setValue(`addressList.${index}.localidade`, address.localidade)
+        setValue(`addressList.${index}.uf`, address.uf)
+      })
+    }
+  }, [contato, setValue])
+
+  if (isError) {
+    return (
+      <>
+        <S.Header>
+          <div>
+            <Title>Editar contato</Title>
+          </div>
+        </S.Header>
+        <Text danger>
+          Tivemos algum problema ao realizar a sua solicitação, por favor tente
+          novamente mais tarde.
+        </Text>
+      </>
+    )
+  }
+
+  if (!contato || isLoading) {
+    return (
+      <>
+        <S.Header>
+          <div>
+            <Title>Editar contato</Title>
+          </div>
+        </S.Header>
+        <Skeleton
+          height={90}
+          count={5}
+          borderRadius={10}
+          baseColor="#4FB6FF"
+          containerClassName="skeletons"
+        />
+      </>
+    )
+  }
 
   return (
     <S.Section>
       <Container>
         <S.Wrapper>
           <S.Header>
-            <Title>Criar um novo Contato</Title>
+            <Title>Editar contato</Title>
           </S.Header>
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormItem>
@@ -445,4 +485,4 @@ const AddContact = () => {
   )
 }
 
-export default AddContact
+export default EditContact

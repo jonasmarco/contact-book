@@ -6,11 +6,11 @@ import GroupButtons from '@/components/GroupButtons'
 import Text from '@/components/Text'
 import Title from '@/components/Title'
 import Search from '@/components/Search'
+import Skeleton from 'react-loading-skeleton'
 
 import { Plus } from '@styled-icons/bootstrap'
 import { Link } from 'react-router-dom'
 import { useQuery, useMutation } from 'react-query'
-import Skeleton from 'react-loading-skeleton'
 import Rodal from 'rodal'
 
 import { ContactBook } from '@/types/Contact'
@@ -96,6 +96,24 @@ const ContactList = () => {
     )
   }
 
+  if (data && data.length === 0) {
+    return (
+      <>
+        <S.Header>
+          <div>
+            <Title>Meus Contatos</Title>
+          </div>
+          <Link to="/contacts/new-contact">
+            <Button icon={<Plus />} otherSide>
+              Adicionar Contato
+            </Button>
+          </Link>
+        </S.Header>
+        <Text>Nenhum contato cadastrado.</Text>
+      </>
+    )
+  }
+
   const groups = groupContactsByInitial(data)
   const sortedGroups = Object.keys(groups).sort()
 
@@ -107,7 +125,7 @@ const ContactList = () => {
           <Title>Meus Contatos</Title>
           <span>({data.length} total)</span>
         </div>
-        <Link to="/add-contact">
+        <Link to="/contacts/new-contact">
           <Button icon={<Plus />} otherSide>
             Adicionar Contato
           </Button>

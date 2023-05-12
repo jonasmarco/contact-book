@@ -3,6 +3,8 @@ import React from 'react'
 import Button from '@/components/Button'
 import Text from '@/components/Text'
 
+import { Link } from 'react-router-dom'
+
 import { onlyNumbers } from '@/utils/onlyNumbers'
 import { ContactBook } from '@/types/Contact'
 
@@ -19,6 +21,7 @@ interface ContactItemProps extends ContactBook {
 }
 
 const ContactItem = ({
+  id,
   name,
   photo,
   phoneNumbers,
@@ -44,9 +47,11 @@ const ContactItem = ({
         <Button category="success" icon={<Eye />} onClick={handleShowDetails}>
           {}
         </Button>
-        <Button category="warning" icon={<Edit />}>
-          {}
-        </Button>
+        <Link to={`/contacts/${id}/edit-contact`}>
+          <Button category="warning" icon={<Edit />}>
+            {}
+          </Button>
+        </Link>
         <Button category="danger" icon={<Delete />} onClick={handleDelete}>
           {}
         </Button>

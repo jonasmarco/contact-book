@@ -25,27 +25,6 @@
       ]
     },
     {
-      "id": "13d6c268-88ff-4532-b8e8-229a5ef9ce63",
-      "name": "Michael Smith",
-      "photo": "https://i.pravatar.cc/150?u=maria.souza",
-      "phoneNumbers": [
-        {
-          "number": "(44) 99759-8423"
-        }
-      ],
-      "addressList": [
-        {
-          "cep": "89212-070",
-          "logradouro": "Rua Ipira",
-          "numero": "3423442",
-          "complemento": "",
-          "bairro": "Floresta",
-          "localidade": "Joinville",
-          "uf": "SC"
-        }
-      ]
-    },
-    {
       "id": "85f694f4-1d8f-40d3-99d7-fedc8fdbd772",
       "name": "Emily Anderson",
       "photo": "https://i.pravatar.cc/150?u=pedro.santos",
@@ -94,12 +73,10 @@
       ]
     },
     {
-      "id": "e1e7a9f1-dc9f-4e6b-a5b3-fa2e7c7b3c1a",
-      "name": "Ana Silva",
-      "photo": "https://i.pravatar.cc/150?u=ana.silva",
+      "name": "Ana Silva Sauro",
       "phoneNumbers": [
         {
-          "number": "(21) 92345-6789"
+          "number": "(21) 92345-6780"
         }
       ],
       "addressList": [
@@ -112,7 +89,9 @@
           "localidade": "Joinville",
           "uf": "SC"
         }
-      ]
+      ],
+      "photo": "https://i.pravatar.cc/150?u=ana.silva",
+      "id": "e1e7a9f1-dc9f-4e6b-a5b3-fa2e7c7b3c1a"
     },
     {
       "id": "6b0f6f5c-fb8e-4e9c-a2a2-fb7f3a8a4f3d",
@@ -163,30 +142,6 @@
       "id": "bx7vVen"
     },
     {
-      "name": "Kaio Jorge",
-      "phoneNumbers": [
-        {
-          "number": "(11) 98768-7465"
-        },
-        {
-          "number": "(42) 35345-3463"
-        }
-      ],
-      "addressList": [
-        {
-          "cep": "86183-210",
-          "logradouro": "Rua Tamoios",
-          "numero": "111",
-          "complemento": "",
-          "bairro": "Jardim Tupi",
-          "localidade": "Cambé",
-          "uf": "PR"
-        }
-      ],
-      "photo": "",
-      "id": "2NOjLaT"
-    },
-    {
       "name": "Felipe Santos",
       "phoneNumbers": [
         {
@@ -208,10 +163,13 @@
       "id": "5vRQCJb"
     },
     {
-      "name": "Maicon Santos",
+      "name": "Maicon Farias",
       "phoneNumbers": [
         {
           "number": "(14) 21342-5425"
+        },
+        {
+          "number": "(43) 79642-8364"
         }
       ],
       "addressList": [
@@ -227,6 +185,36 @@
       ],
       "photo": "",
       "id": "nccYqLp"
+    },
+    {
+      "name": "Helio Juniior",
+      "phoneNumbers": [
+        {
+          "number": "(43) 87979-8798"
+        }
+      ],
+      "addressList": [
+        {
+          "cep": "65044-650",
+          "logradouro": "Rua São Sebastião",
+          "numero": "99",
+          "complemento": "",
+          "bairro": "Coroadinho",
+          "localidade": "São Luís",
+          "uf": "MA"
+        },
+        {
+          "cep": "79100-590",
+          "logradouro": "Rua São Caetano",
+          "numero": "112",
+          "complemento": "",
+          "bairro": "Vila Duque de Caxias",
+          "localidade": "Campo Grande",
+          "uf": "MS"
+        }
+      ],
+      "photo": "",
+      "id": "hiHYtjW"
     }
   ]
 }

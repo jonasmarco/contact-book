@@ -1,7 +1,9 @@
 import { AxiosResponse } from 'axios'
 import axios from './config'
 import { ContactBook } from '@/types/Contact'
+import { useQuery } from 'react-query'
 
+// Get all
 export const getContactBook = async (): Promise<ContactBook[]> => {
   try {
     const response: AxiosResponse<ContactBook[]> = await axios.get(
@@ -13,6 +15,24 @@ export const getContactBook = async (): Promise<ContactBook[]> => {
   }
 }
 
+// Get one by id
+const getContact = async (id: string): Promise<ContactBook> => {
+  try {
+    const response: AxiosResponse<ContactBook> = await axios.get(
+      `/contactBook/${id}`
+    )
+    return response.data
+  } catch (error: any) {
+    throw new Error(`Failed to fetch contact. Error: ${error.message}`)
+  }
+}
+
+// Get one by id (query)
+export const useContact = (id: string) => {
+  return useQuery<ContactBook, Error>(['contact', id], () => getContact(id))
+}
+
+// Group by initial letter
 export const groupContactsByInitial = (data: ContactBook[]) => {
   const groups: { [key: string]: ContactBook[] } = {}
 
@@ -39,7 +59,22 @@ export const setContactBook = async (
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to fetch contact book. Error: ${error.message}`)
+    throw new Error(`Failed to set contact book. Error: ${error.message}`)
+  }
+}
+
+export const updateContactBook = async (
+  id: string,
+  data: ContactBook
+): Promise<ContactBook> => {
+  try {
+    const response: AxiosResponse<ContactBook> = await axios.put(
+      `/contactBook/${id}`,
+      data
+    )
+    return response.data
+  } catch (error: any) {
+    throw new Error(`Failed to update contact book. Error: ${error.message}`)
   }
 }
 
@@ -50,7 +85,7 @@ export const deleteContact = async (id: string): Promise<ContactBook[]> => {
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to fetch contact book. Error: ${error.message}`)
+    throw new Error(`Failed to delete contact book. Error: ${error.message}`)
   }
 }
 
