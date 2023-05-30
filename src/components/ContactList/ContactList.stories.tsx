@@ -2,7 +2,6 @@ import { Meta, StoryFn } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import handlers from './mock'
-import { setupServer } from 'msw/node'
 import styled, { css } from 'styled-components'
 
 const queryClient = new QueryClient()
