@@ -10,12 +10,12 @@ const Navigation = () => {
     <S.Nav>
       <InlineList>
         <li>
-          <S.MenuItem to="/">
+          <S.MenuItem to="/" data-testid="book-contacts">
             <BookContacts />
           </S.MenuItem>
         </li>
         <li>
-          <S.MenuItem to="/configurations">
+          <S.MenuItem to="/contacts/import-contacts" data-testid="gear">
             <Gear />
           </S.MenuItem>
         </li>

@@ -85,13 +85,15 @@ const ContactList = () => {
             <Title>Meus Contatos</Title>
           </div>
         </S.Header>
-        <Skeleton
-          height={90}
-          count={5}
-          borderRadius={10}
-          baseColor="#4FB6FF"
-          containerClassName="skeletons"
-        />
+        <div data-testid="skeleton">
+          <Skeleton
+            height={90}
+            count={5}
+            borderRadius={10}
+            baseColor="#4FB6FF"
+            containerClassName="skeletons"
+          />
+        </div>
       </>
     )
   }

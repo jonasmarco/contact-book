@@ -1,0 +1,506 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component matches the snapshot in different configurations 1`] = `
+.c5 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 1.6rem;
+  -webkit-transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  font-size: 1.8rem;
+  min-height: 4rem;
+  background: #4FB6FF;
+  border: 1px solid #4FB6FF;
+  color: #FCFCFC;
+  position: relative;
+  z-index: 5;
+}
+
+.c0 span {
+  -webkit-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.c0 svg {
+  -webkit-transition: fill 250ms ease-in-out;
+  transition: fill 250ms ease-in-out;
+}
+
+.c0 span {
+  line-height: 2.8rem;
+}
+
+.c0:not(:disabled):hover,
+.c0:not(:disabled):focus {
+  background-color: #596E7D;
+  border-color: #596E7D;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.16),0 5px 8px rgba(0,0,0,0.08);
+}
+
+.c0:not(:disabled):hover span,
+.c0:not(:disabled):focus span {
+  color: #FCFCFC;
+}
+
+.c0:not(:disabled):hover svg,
+.c0:not(:disabled):focus svg {
+  fill: #FCFCFC;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 1.6rem;
+  -webkit-transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  font-size: 2.2rem;
+  min-height: 5rem;
+  background: #4FB6FF;
+  border: 1px solid #4FB6FF;
+  color: #FCFCFC;
+  position: relative;
+  z-index: 5;
+}
+
+.c1 span {
+  -webkit-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.c1 svg {
+  -webkit-transition: fill 250ms ease-in-out;
+  transition: fill 250ms ease-in-out;
+}
+
+.c1 span {
+  line-height: 2.8rem;
+}
+
+.c1:not(:disabled):hover,
+.c1:not(:disabled):focus {
+  background-color: #596E7D;
+  border-color: #596E7D;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.16),0 5px 8px rgba(0,0,0,0.08);
+}
+
+.c1:not(:disabled):hover span,
+.c1:not(:disabled):focus span {
+  color: #FCFCFC;
+}
+
+.c1:not(:disabled):hover svg,
+.c1:not(:disabled):focus svg {
+  fill: #FCFCFC;
+}
+
+.c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 1.6rem;
+  -webkit-transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  font-size: 1.8rem;
+  min-height: 4rem;
+  background: #596E7D;
+  border: 1px solid #596E7D;
+  color: #FCFCFC;
+  position: relative;
+  z-index: 5;
+}
+
+.c2 span {
+  -webkit-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.c2 svg {
+  -webkit-transition: fill 250ms ease-in-out;
+  transition: fill 250ms ease-in-out;
+}
+
+.c2 span {
+  line-height: 2.8rem;
+}
+
+.c2:not(:disabled):hover,
+.c2:not(:disabled):focus {
+  background-color: #4FB6FF;
+  border-color: #4FB6FF;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.16),0 5px 8px rgba(0,0,0,0.08);
+}
+
+.c2:not(:disabled):hover span,
+.c2:not(:disabled):focus span {
+  color: #FCFCFC;
+}
+
+.c2:not(:disabled):hover svg,
+.c2:not(:disabled):focus svg {
+  fill: #FCFCFC;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 1.6rem;
+  -webkit-transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  font-size: 1.8rem;
+  min-height: 4rem;
+  background: #4FB6FF;
+  border: 1px solid #4FB6FF;
+  color: #FCFCFC;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.c3 span {
+  -webkit-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.c3 svg {
+  -webkit-transition: fill 250ms ease-in-out;
+  transition: fill 250ms ease-in-out;
+}
+
+.c3 span {
+  line-height: 2.8rem;
+}
+
+.c3:not(:disabled):hover,
+.c3:not(:disabled):focus {
+  background-color: #596E7D;
+  border-color: #596E7D;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.16),0 5px 8px rgba(0,0,0,0.08);
+}
+
+.c3:not(:disabled):hover span,
+.c3:not(:disabled):focus span {
+  color: #FCFCFC;
+}
+
+.c3:not(:disabled):hover svg,
+.c3:not(:disabled):focus svg {
+  fill: #FCFCFC;
+}
+
+.c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 1.6rem;
+  -webkit-transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  font-size: 1.8rem;
+  min-height: 4rem;
+  background: #4FB6FF;
+  border: 1px solid #4FB6FF;
+  color: #FCFCFC;
+  position: relative;
+  z-index: 5;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c4 span {
+  -webkit-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.c4 svg {
+  -webkit-transition: fill 250ms ease-in-out;
+  transition: fill 250ms ease-in-out;
+}
+
+.c4 span {
+  line-height: 2.8rem;
+}
+
+.c4:not(:disabled):hover,
+.c4:not(:disabled):focus {
+  background-color: #596E7D;
+  border-color: #596E7D;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.16),0 5px 8px rgba(0,0,0,0.08);
+}
+
+.c4:not(:disabled):hover span,
+.c4:not(:disabled):focus span {
+  color: #FCFCFC;
+}
+
+.c4:not(:disabled):hover svg,
+.c4:not(:disabled):focus svg {
+  fill: #FCFCFC;
+}
+
+.c4 span {
+  margin: 0 1rem 0 0;
+}
+
+.c4 svg {
+  width: 1.5rem;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 1.6rem;
+  -webkit-transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out,box-shadow 250ms ease-in-out;
+  font-size: 1.8rem;
+  min-height: 4rem;
+  background: #4FB6FF;
+  border: 1px solid #4FB6FF;
+  color: #FCFCFC;
+  position: relative;
+  z-index: 5;
+}
+
+.c6 span {
+  -webkit-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.c6 svg {
+  -webkit-transition: fill 250ms ease-in-out;
+  transition: fill 250ms ease-in-out;
+}
+
+.c6 span {
+  line-height: 2.8rem;
+}
+
+.c6:not(:disabled):hover,
+.c6:not(:disabled):focus {
+  background-color: #596E7D;
+  border-color: #596E7D;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.16),0 5px 8px rgba(0,0,0,0.08);
+}
+
+.c6:not(:disabled):hover span,
+.c6:not(:disabled):focus span {
+  color: #FCFCFC;
+}
+
+.c6:not(:disabled):hover svg,
+.c6:not(:disabled):focus svg {
+  fill: #FCFCFC;
+}
+
+.c6:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+  pointer-events: none;
+  -webkit-transition: none;
+  transition: none;
+}
+
+@media (min-width:769px) {
+  .c0 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+}
+
+@media (min-width:769px) {
+  .c1 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+}
+
+@media (min-width:769px) {
+  .c2 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+}
+
+@media (min-width:769px) {
+  .c3 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+}
+
+@media (min-width:769px) {
+  .c4 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+}
+
+@media (min-width:769px) {
+  .c6 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+}
+
+<div>
+  <button
+    class="c0"
+    type="button"
+  >
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="c1"
+    type="button"
+  >
+    <span>
+      Large
+    </span>
+  </button>
+  <button
+    class="c2"
+    type="button"
+  >
+    <span>
+      Secondary
+    </span>
+  </button>
+  <button
+    class="c3"
+    type="button"
+  >
+    <span>
+      Full Width
+    </span>
+  </button>
+  <button
+    class="c4"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="c5"
+      fill="currentColor"
+      focusable="false"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0v6.775l4.79 4.79A7 7 0 0 0 8.5 1.018zm4.084 12.273L8.5 9.207v5.775a6.97 6.97 0 0 0 4.084-1.691zM7.5 14.982V9.207l-4.084 4.084A6.97 6.97 0 0 0 7.5 14.982zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+      />
+    </svg>
+  </button>
+  <button
+    class="c6"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Disabled
+    </span>
+  </button>
+  <a
+    class="c0"
+    href="/link"
+    type="button"
+  >
+    <span>
+      Link
+    </span>
+  </a>
+</div>
+`;

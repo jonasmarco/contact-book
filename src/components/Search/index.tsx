@@ -1,6 +1,7 @@
 import React from 'react'
 
 import FormItem from '@/components/FormItem'
+import Spinner from '@/components/Spinner'
 import Title from '@/components/Title'
 
 import { useDebounce } from '@/hooks/useDebounce'
@@ -49,12 +50,19 @@ const Search = () => {
 
   const inputRef = React.useRef<HTMLInputElement>(null)
 
-  const handleSuggestionClick = (suggestion: {
-    name: string
-    phone: string
-  }) => {
+  const handleSuggestionClick = (
+    suggestion: { name: string; phone: string },
+    event: React.MouseEvent
+  ) => {
+    if (event) {
+      event.preventDefault()
+    }
+
     setSearchTerm(suggestion.name)
     setSuggestions([])
+
+    // Abrir o discador.
+    window.open(`tel:${onlyNumbers(suggestion.phone)}`, '_self')
   }
 
   const handleSuggestionsClose = () => {
@@ -100,20 +108,26 @@ const Search = () => {
           value={searchTerm}
           onChange={handleSearchInputChange}
           ref={inputRef}
+          disabled={isSearching}
+          readOnly={isSearching}
         />
-        {suggestions.length > 0 && (
-          <S.Suggestions id="suggestions">
-            {suggestions.map((suggestion) => (
-              <S.Suggestion
-                key={suggestion.name}
-                onClick={() => handleSuggestionClick(suggestion)}
-              >
-                <a href={`tel:${onlyNumbers(suggestion.phone)}`}>
-                  {suggestion.name}
-                </a>
-              </S.Suggestion>
-            ))}
+        {isSearching ? (
+          <S.Suggestions>
+            <Spinner />
           </S.Suggestions>
+        ) : (
+          suggestions.length > 0 && (
+            <S.Suggestions id="suggestions">
+              {suggestions.map((suggestion) => (
+                <S.Suggestion
+                  key={suggestion.name}
+                  onClick={(event) => handleSuggestionClick(suggestion, event)}
+                >
+                  <span>{suggestion.name}</span>
+                </S.Suggestion>
+              ))}
+            </S.Suggestions>
+          )
         )}
       </FormItem>
     </S.Wrapper>

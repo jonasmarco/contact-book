@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title Component matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  color: #4FB6FF;
+  font-size: 1.8rem;
+  font-weight: 300;
+  -webkit-letter-spacing: 0.135rem;
+  -moz-letter-spacing: 0.135rem;
+  -ms-letter-spacing: 0.135rem;
+  letter-spacing: 0.135rem;
+}
+
+@media (min-width:769px) {
+  .c0 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width:1367px) {
+  .c0 {
+    font-size: 4.2rem;
+  }
+}
+
+<h1
+    class="c0"
+  >
+    My Title
+  </h1>
+</DocumentFragment>
+`;

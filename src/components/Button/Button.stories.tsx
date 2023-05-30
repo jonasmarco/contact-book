@@ -21,7 +21,7 @@ export default {
       control: { type: 'radio' }
     },
     category: {
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'danger', 'success', 'warning'],
       control: { type: 'radio' }
     },
     fullWidth: {
@@ -54,6 +54,30 @@ Primary.args = {
 export const Secondary = Template.bind({})
 Secondary.args = {
   category: 'secondary'
+}
+
+export const Danger = Template.bind({})
+Danger.args = {
+  children: "I'm Danger",
+  category: 'danger'
+}
+
+export const Success = Template.bind({})
+Success.args = {
+  children: 'Success for us',
+  category: 'success'
+}
+
+export const Warning = Template.bind({})
+Warning.args = {
+  children: 'Pay attention',
+  category: 'warning'
+}
+
+export const Large = Template.bind({})
+Large.args = {
+  children: "I'm a little bigger",
+  size: 'large'
 }
 
 export const FullWidth = Template.bind({})

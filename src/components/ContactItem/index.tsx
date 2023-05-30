@@ -14,9 +14,9 @@ import Rodal from 'rodal'
 import 'rodal/lib/rodal.css'
 import * as S from './styles'
 
-const DEFAULT_AVATAR_URL = '/avatar.svg'
+export const DEFAULT_AVATAR_URL = '/avatar.svg'
 
-interface ContactItemProps extends ContactBook {
+export interface Props extends ContactBook {
   handleDelete: () => void
 }
 
@@ -27,7 +27,7 @@ const ContactItem = ({
   phoneNumbers,
   addressList,
   handleDelete
-}: ContactItemProps) => {
+}: Props) => {
   const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false)
 
   const handleShowDetails = () => {
@@ -44,7 +44,12 @@ const ContactItem = ({
         </a>
       </div>
       <div>
-        <Button category="success" icon={<Eye />} onClick={handleShowDetails}>
+        <Button
+          category="success"
+          icon={<Eye />}
+          onClick={handleShowDetails}
+          data-testid="btn-details"
+        >
           {}
         </Button>
         <Link to={`/contacts/${id}/edit-contact`}>
@@ -52,7 +57,12 @@ const ContactItem = ({
             {}
           </Button>
         </Link>
-        <Button category="danger" icon={<Delete />} onClick={handleDelete}>
+        <Button
+          category="danger"
+          icon={<Delete />}
+          onClick={handleDelete}
+          data-testid="btn-delete"
+        >
           {}
         </Button>
       </div>

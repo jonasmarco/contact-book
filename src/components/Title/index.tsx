@@ -1,10 +1,10 @@
 import * as S from './styles'
 
-type TitleProps = {
+export type Props = {
   children: string
 }
 
-const Title = ({ children }: TitleProps) => {
+const Title = ({ children }: Props) => {
   return <S.Wrapper>{children}</S.Wrapper>
 }
 

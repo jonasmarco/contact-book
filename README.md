@@ -8,6 +8,8 @@ This project uses lot of stuff as:
 - TypeScript
 - React Query
 - React Hook Form
+- Rodal
+- Yup
 - Jest
 - React Testing Library
 - Storybook
@@ -15,6 +17,7 @@ This project uses lot of stuff as:
 - Prettier
 - Husky
 - Axios
+- MSW
 
 ## Getting Started
 
@@ -34,6 +37,12 @@ Run the JSON SERVER in a separate terminal
 
 ```bash
 json-server --watch mock/db.json
+```
+
+Before starting the Storybook, create a Service Worker so that MSW can intercept requests
+
+```bash
+npx msw init public
 ```
 
 Then run the development server

@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 import { customMedia } from '../MediaMatch'
 
-import { TextProps } from '.'
+import { Props } from '.'
 
-type WrapperProps = Pick<TextProps, 'danger'>
+type WrapperProps = Pick<Props, 'danger'>
 
 export const Wrapper = styled.p<WrapperProps>`
   ${({ theme, danger }) => css`

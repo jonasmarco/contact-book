@@ -12,6 +12,8 @@ export default {
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setupTests.js'],
   moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '\\.(css)$': '<rootDir>/.jest/styleMock.js',
     '^styled-components':
       '<rootDir>/node_modules/styled-components/dist/styled-components.browser.cjs.js'
   },
