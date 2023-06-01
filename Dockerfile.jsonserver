@@ -1,0 +1,15 @@
+# 2nd Stage - "server"
+# Base image
+FROM node:16 AS server
+# Set working directory
+WORKDIR /server
+# Install json-server
+RUN yarn global add json-server
+# Copy the db.json file into the mock directory in the container
+COPY ./mock/db.json ./mock/db.json
+# Exposes the port to access the app from outside the container i.e from the browser
+EXPOSE 5000
+# Define environment variable
+ENV MOCK_PATH /server/mock
+# Run json-server on container startup
+CMD json-server --watch $MOCK_PATH/db.json --port 5000 --host 0.0.0.0

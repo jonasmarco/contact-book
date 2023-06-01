@@ -1,8 +1,8 @@
-# ContactBook | Meus Contatos
+# ContactBook | My Contacts
 
-## What is inside?
+## Included Technologies
 
-This project uses lot of stuff as:
+This project utilizes a diverse array of technologies, including:
 
 - Styled Components
 - TypeScript
@@ -18,50 +18,79 @@ This project uses lot of stuff as:
 - Husky
 - Axios
 - MSW
+- Docker
 
-## Getting Started
+## Getting Started (Development)
 
-First install the global dependencies
+Follow the instructions below to set up the project for development:
+
+1. **Install Global Dependencies**
+
+   Start by installing the global dependencies with the following command:
+
+   ```bash
+   npm install -g json-server
+   ```
+
+2. **Install Project Dependencies**
+
+   Next, install the project dependencies using:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Run JSON Server**
+
+   In a separate terminal, run the JSON Server using the command:
+
+   ```bash
+   json-server --watch mock/db.json
+   ```
+
+4. **Create a Service Worker**
+
+   Before starting the Storybook, you'll need to create a Service Worker so that MSW can intercept requests. Do this with:
+
+   ```bash
+   npx msw init public
+   ```
+
+5. **Run the Development Server**
+
+   Finally, start the development server using:
+
+   ```bash
+   yarn dev
+   ```
+
+   You can now open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
+
+## Docker Deployment
+
+If you prefer to use Docker, ensure that you have the appropriate environment setup. You can then use the following command:
 
 ```bash
-npm install -g json-server
+docker-compose up -d
 ```
 
-Then install the project dependencies
+After running the command, open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
+
+Use a REST client like Insomnia to inspect the endpoint at:
 
 ```bash
-yarn
+http://localhost:5000/contactBook
 ```
 
-Run the JSON SERVER in a separate terminal
+## Available Commands
 
-```bash
-json-server --watch mock/db.json
-```
+- `dev`: Runs your application on `localhost:5173`.
+- `build`: Creates the production build version.
+- `storybook`: Runs the Storybook stories.
+- `build-storybook`: Creates the Storybook build.
+- `test`: Runs Jest to test all components.
+- `test:watch`: Runs Jest in watch mode to test all components.
 
-Before starting the Storybook, create a Service Worker so that MSW can intercept requests
+## Important Note
 
-```bash
-npx msw init public
-```
-
-Then run the development server
-
-```bash
-yarn dev
-```
-
-Open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
-
-## Commands
-
-- `dev`: runs your application on `localhost:5173`
-- `build`: creates the production build version
-- `storybook`: runs the storybook stories
-- `build-storybook`: create the build storybook
-- `test`: runs jest to test all components
-- `test:watch`: runs jest to test all components in watch mode
-
-## Pay attention
-
-- This backend local server (JSON SERVER API) is just to provide the data to the frontend, never use it in production.
+The local backend server (JSON SERVER API) is only intended to provide data to the frontend during development. **Do not use it in a production environment.**
