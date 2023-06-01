@@ -11,9 +11,6 @@ export default defineConfig({
   server: {
     host: true
   },
-  build: {
-    commonjsOptions: { include: [] }
-  },
   define: {
     'process.env': {}
   }
