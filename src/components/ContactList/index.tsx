@@ -12,6 +12,7 @@ import { Plus } from '@styled-icons/bootstrap'
 import { Link } from 'react-router-dom'
 import { useQuery, useMutation } from 'react-query'
 import Rodal from 'rodal'
+import toast from 'react-hot-toast'
 
 import { ContactBook } from '@/types/Contact'
 import {
@@ -37,9 +38,37 @@ const ContactList = () => {
     onSuccess: () => {
       refetch()
       setIsDeleting(false)
+
+      toast.success('Contato excluído com sucesso!', {
+        style: {
+          border: '1px solid #4FB6FF',
+          borderRadius: '1rem',
+          color: '#596E7D',
+          fontSize: '14px',
+          padding: '16px'
+        },
+        iconTheme: {
+          primary: '#33CC33',
+          secondary: '#FCFCFC'
+        }
+      })
     },
-    onError: () => {
+    onError: (error: any) => {
       setIsDeleting(false)
+
+      toast.error(`Erro ao excluir contato: ${error.message}`, {
+        style: {
+          border: '1px solid #4FB6FF',
+          borderRadius: '1rem',
+          color: '#596E7D',
+          fontSize: '14px',
+          padding: '16px'
+        },
+        iconTheme: {
+          primary: '#FF6565',
+          secondary: '#FCFCFC'
+        }
+      })
     }
   })
 
@@ -150,6 +179,9 @@ const ContactList = () => {
       <Rodal
         visible={!!contactToDelete}
         onClose={() => setContactToDelete(null)}
+        showCloseButton={false}
+        closeOnEsc={false}
+        closeMaskOnClick={false}
       >
         <S.ModalBody>
           <Text>Tem certeza que deseja excluir este contato?</Text>
@@ -161,7 +193,7 @@ const ContactList = () => {
             >
               {isDeleting ? 'Excluindo...' : 'Sim'}
             </Button>
-            <Button onClick={() => setContactToDelete(null)}>Cancelar</Button>
+            <Button onClick={() => setContactToDelete(null)}>Não</Button>
           </GroupButtons>
         </S.ModalBody>
       </Rodal>

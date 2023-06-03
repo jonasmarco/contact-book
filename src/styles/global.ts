@@ -27,8 +27,10 @@ const GlobalStyles = createGlobalStyle`
     `}
   }
   .rodal-dialog {
+    border-radius: 1rem;
     height: fit-content !important;
     max-width: 100%;
+    padding: 30px 25px;
   }
   .skeletons {
     > span {

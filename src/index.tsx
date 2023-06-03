@@ -16,6 +16,7 @@ const queryClient = new QueryClient({
   }
 })
 
+import { Toaster } from 'react-hot-toast'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './styles/global'
 import theme from './styles/theme'
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
+        <Toaster position="bottom-center" reverseOrder={false} />
         <Layout>
           <MainRoutes />
         </Layout>

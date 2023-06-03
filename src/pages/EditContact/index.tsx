@@ -21,6 +21,7 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ContactBookSchema } from '@/utils/validations/contactBookValidations'
 import { useDebouncedCallback } from '@/hooks/useDebouncedCallback'
+import toast from 'react-hot-toast'
 
 import { onlyNumbers } from '@/utils/onlyNumbers'
 import { ContactBook } from '@/types/Contact'
@@ -154,17 +155,42 @@ const EditContact = () => {
   >(({ id, data }) => updateContactBook(id, data), {
     onSuccess: () => {
       navigate('/')
+      toast.success('Contato atualizado com sucesso!', {
+        style: {
+          border: '1px solid #4FB6FF',
+          borderRadius: '1rem',
+          color: '#596E7D',
+          fontSize: '14px',
+          padding: '16px'
+        },
+        iconTheme: {
+          primary: '#33CC33',
+          secondary: '#FCFCFC'
+        }
+      })
     },
-    onError: () => {
-      console.log('error')
+    onError: (error: any) => {
+      toast.error(`Erro ao atualizar contato: ${error.message}`, {
+        style: {
+          border: '1px solid #4FB6FF',
+          borderRadius: '1rem',
+          color: '#596E7D',
+          fontSize: '14px',
+          padding: '16px'
+        },
+        iconTheme: {
+          primary: '#FF6565',
+          secondary: '#FCFCFC'
+        }
+      })
     }
   })
 
   const onSubmit: SubmitHandler<ContactBook> = async (data) => {
     try {
       await updateContactBookMutation.mutateAsync({ id: id as string, data })
-    } catch (error: any) {
-      console.log(error.message)
+    } catch (error) {
+      updateContactBookMutation.reset()
     }
   }
 

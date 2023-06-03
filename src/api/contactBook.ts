@@ -11,7 +11,7 @@ export const getContactBook = async (): Promise<ContactBook[]> => {
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to fetch contact book. Error: ${error.message}`)
+    throw new Error(error.message)
   }
 }
 
@@ -23,7 +23,7 @@ const getContact = async (id: string): Promise<ContactBook> => {
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to fetch contact. Error: ${error.message}`)
+    throw new Error(error.message)
   }
 }
 
@@ -49,20 +49,40 @@ export const groupContactsByInitial = (data: ContactBook[]) => {
   return groups
 }
 
+// Get one by name
+const getContactByName = async (name: string): Promise<ContactBook | null> => {
+  try {
+    const response: AxiosResponse<ContactBook[]> = await axios.get(
+      `/contactBook?name=${name}`
+    )
+    return response.data[0] || null
+  } catch (error: any) {
+    throw new Error(error.message)
+  }
+}
+
+// Create one
 export const setContactBook = async (
   data: ContactBook
 ): Promise<ContactBook> => {
   try {
+    // Check if a contact with the same name already exists
+    const existingContact = await getContactByName(data.name)
+    if (existingContact) {
+      throw new Error('Um contato com o mesmo nome já existe.')
+    }
+
     const response: AxiosResponse<ContactBook> = await axios.post(
       '/contactBook',
       data
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to set contact book. Error: ${error.message}`)
+    throw new Error(error.message)
   }
 }
 
+// Update one
 export const updateContactBook = async (
   id: string,
   data: ContactBook
@@ -74,10 +94,11 @@ export const updateContactBook = async (
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to update contact book. Error: ${error.message}`)
+    throw new Error(error.message)
   }
 }
 
+// Delete one
 export const deleteContact = async (id: string): Promise<ContactBook[]> => {
   try {
     const response: AxiosResponse<ContactBook[]> = await axios.delete(
@@ -85,10 +106,11 @@ export const deleteContact = async (id: string): Promise<ContactBook[]> => {
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to delete contact book. Error: ${error.message}`)
+    throw new Error(error.message)
   }
 }
 
+// Search
 export const searchContacts = async (
   searchTerm: string
 ): Promise<ContactBook[]> => {
@@ -98,6 +120,6 @@ export const searchContacts = async (
     )
     return response.data
   } catch (error: any) {
-    throw new Error(`Failed to search contacts. Error: ${error.message}`)
+    throw new Error(error.message)
   }
 }
